@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { type } from "os";
 
 const itemSchema = new mongoose.Schema({
     name: {type: String, required: true},
@@ -10,4 +9,4 @@ const itemSchema = new mongoose.Schema({
     createAt: {type: Date, default: Date.now()}
 })
 
-export default mongoose.model("item", itemSchema)
+export default mongoose.model("Item", itemSchema)
