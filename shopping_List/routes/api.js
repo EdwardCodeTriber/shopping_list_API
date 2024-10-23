@@ -1,9 +1,10 @@
 import express from "express";
-import createItem from "../controllers/itemController.js";
+import itemController from "../controllers/itemController.js";
 
 
 const router = express.Router()
 
-router.post("/items", createItem)
+router.post("/items",itemController.createItem)
+router.get("/items", itemController.getItems)
 
 export default router;
