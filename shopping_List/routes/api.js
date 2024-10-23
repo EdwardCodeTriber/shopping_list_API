@@ -6,5 +6,6 @@ const router = express.Router()
 
 router.post("/items",itemController.createItem)
 router.get("/items", itemController.getItems)
+router.get("/items/:id", itemController.getItem)
 
 export default router;

@@ -25,7 +25,22 @@ const getItems = async (req, res) =>{
     }
 }
 
+const getItem = async (req, res) => {
+    try {
+        const itemId = await req.params.id
+        const item = await Items.findById(itemId)
+        res.status(200).json(item);
+    } catch (error) {
+       if(error.kind === "ObjectId"){
+        res.status(400).json({error: "Invalid Item ID"})
+       } else{
+        res.status(500).json({error: "An error occured"})
+       }
+    }
+}
+
 export default {
     createItem,
-    getItems
+    getItems,
+    getItem
 };
