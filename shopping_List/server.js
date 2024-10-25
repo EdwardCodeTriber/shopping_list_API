@@ -17,4 +17,4 @@ app.use("/api/v1", router)
 connectDB()
 
 
-app.listen(PORT, () => console.log(`Server has started on ${PORT}`))
+app.listen(PORT, () => console.log(`Server has started on  http://localhost:${PORT}`))

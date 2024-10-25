@@ -1,6 +1,5 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 import * as bcrypt from "bcrypt";
-import validator from "validator";
 import validator from "validator";
 
 const userScehma = new mongoose.Schema({
@@ -20,9 +19,10 @@ const userScehma = new mongoose.Schema({
         );
       },
     },
-  },
-  massage:
+    massage:
     "Password must conatain atleast one lowercase letter, uppercase letter, a number and special charactor",
+  },
+ 
 });
 
 userScehma.methods.matchPasswords = async function (enterPassword) {

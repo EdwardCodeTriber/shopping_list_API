@@ -1,6 +1,6 @@
-import User from "../models/user";
+import User from "../models/user.js";
 import bcrypt from "bcrypt"
-import generateToken from "../utils";
+import generateToken from "../utils/index.js";
 
 const registerUser = async (req, res) => {
     try {
@@ -38,7 +38,7 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
     try {
         const {email, password} = req.body;
-        const user = User.findOne({email});
+        const user = await User.findOne({email});
 
         if(!user || !(await user.matchPasswords(password))){
             return res.status(401).json({
@@ -54,6 +54,7 @@ const loginUser = async (req, res) => {
         })    
         
     } catch (error) {
+        console.log(error)
         res.status(500).json({error: "Internal server error"})
     }
 }
