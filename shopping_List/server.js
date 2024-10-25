@@ -2,6 +2,7 @@ import "dotenv/config";
 import express  from "express";
 import mongoose from "mongoose";
 import cors from "cors"
+// Imported js files must include their extension .js always
 import router from "./routes/api.js";
 import connectDB from "./config/database.js";
 
