@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import * as bcrypt from "bcrypt";
 import validator from "validator";
 
-const userScehma = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
@@ -25,8 +25,8 @@ const userScehma = new mongoose.Schema({
  
 });
 
-userScehma.methods.matchPasswords = async function (enterPassword) {
+userSchema.methods.matchPasswords = async function (enterPassword) {
     return await bcrypt.compare(enterPassword, this.password)
 }
 
-export default mongoose.model("User", userScehma)
+export default mongoose.model("User", userSchema)
